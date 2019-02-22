@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: eureka-zuul
+server:
+  port: 8092
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8090/eureka/
+zuul:
+  routes:
+    api-a:
+      path: /api-a/*
+      serviceId: eureka-ribbon
+    api-b:
+      path: /api-b/*
+      serviceId: eureka-feign
